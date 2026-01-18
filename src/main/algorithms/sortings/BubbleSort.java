@@ -35,14 +35,17 @@ public class BubbleSort {
          * If there are n elements then number of steps will be (n-1).
          * And in each steps of step number of iteration will be (n-step);
          * */
-        for(int step=1; step<n; step++){
-            for(int i=0; i<(n-step); i++){
+        for(int step=1; step<=n-1; step++){
+            boolean swapped = false;
+            for(int i=0; i<=(n-step-1); i++){
                 if(arr[i] > arr[i+1]){
                     int temp = arr[i];
                     arr[i] = arr[i+1];
                     arr[i+1] = temp;
+                    swapped = true;
                 }
             }
+            if(!swapped) break;
         }
     }
 
