@@ -25,7 +25,7 @@ public class Factorial {
     private static int recursionHelper(int n) {
         if(n < 0) throw new IllegalArgumentException("Provided input number should be positive.");
         if(n == 0 || n == 1) return 1;
-        return n * factorial(n - 1);
+        return n * recursionHelper(n - 1);
     }
 
     /**
