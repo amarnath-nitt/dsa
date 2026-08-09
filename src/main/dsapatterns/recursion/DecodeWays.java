@@ -22,16 +22,22 @@ public class DecodeWays {
         if (index == 0) {
             return 1;
         }
-        if (s.charAt(index - 1) == '0') {
-            return 0;
+        int result = 0;
+
+        // Take one digit
+        if (s.charAt(index - 1) != '0') {
+            result = decodeHelper(s, index - 1);
         }
-        int result = decodeHelper(s, index - 1);
+
+        // Take two digits
         if (index >= 2) {
             int twoDigit = Integer.parseInt(s.substring(index - 2, index));
+
             if (twoDigit >= 10 && twoDigit <= 26) {
                 result += decodeHelper(s, index - 2);
             }
         }
+
         return result;
     }
 
@@ -60,5 +66,7 @@ public class DecodeWays {
         }
 
         return dp[n];
+
+
     }
 }
